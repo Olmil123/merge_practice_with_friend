@@ -9,3 +9,10 @@ class Animal:
 
 anime = Animal("sasha", 16)
 anime.say()
+
+
+def sum(n, y):
+    return n + y
+
+
+print(5, 6)
