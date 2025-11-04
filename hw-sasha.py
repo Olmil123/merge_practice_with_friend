@@ -198,12 +198,136 @@
 
 # & Task 13
 
-text = input("Enter pls: ")
-words = text.split()
+# text = input("Enter pls: ")
+# words = text.split()
 
-unique_words = set(words)
-sorted_words = sorted(unique_words)
+# unique_words = set(words)
+# sorted_words = sorted(unique_words)
 
-print("Unique symbols for the ABC:")
-for word in sorted_words:
-    print(word)
+# print("Unique symbols for the ABC:")
+# for word in sorted_words:
+#     print(word)
+
+# | Task 14
+
+# nums = set(range(1, 11))
+# print("Початкова множина:", nums)
+
+# for num in list(nums):
+#     if num % 2 == 0:
+#         nums.remove(num)
+
+
+# print("Множина без парних чисел:", nums)
+
+
+# | Task 15
+
+# a = {1, 2, 3}
+# b = {1, 2, 3, 4, 5}
+# if a <= b:
+#     print("Все элементы множественные")
+# else:
+#     print("Меняй!")
+
+# # | Task 16
+
+# num = (2, 6, 1, 3, 7, 4)
+
+# min_num = min(num)
+# max_num = max(num)
+
+# average = sum(num) / len(num)
+
+# print(min_num)
+# print(max_num)
+# print(f"{average:.2f}")
+
+
+# # | Task 17
+# num = (5, 6, 7, 8, 9, 10)
+
+# reversed_num = num[::-1]
+# print(reversed_num)
+
+# | Task 18
+
+# words = ("Sasha", "cool", "men")
+# reversed_words = tuple(word[::-1] for word in words)
+# print(reversed_words)
+
+# | Task 19
+
+# num = (2, 5, 7, 8, 3, 4)
+# N = 5
+
+# pairs = []
+
+# for i in range(len(num)):
+#     for j in range(i + 1, len(num)):
+#         if num[i] + num[j] == N:
+#             pairs.append((num[i], num[j]))
+
+# print(f"Пара, суми равняется {N}:")
+# for p in pairs:
+#     print(p)
+
+# * BONUS Создайте класс Student с такими полями:
+
+# Имя
+# Возраст
+# Список оценок
+# И класс Group:
+
+# список Student
+# название
+
+
+class Student:
+    def __init__(self, name, age, grades=None):
+        self.name = name
+        self.age = age
+        self.grades = grades if grades is not None else []
+
+    def add_grade(self, grade):
+        self.grades.append(grade)
+
+    def average_grade(self):
+        if self.grades:
+            return sum(self.grades) / len(self.grades)
+        return 0
+
+    def __str__(self):
+        return f"{self.name}, {self.age} лет, оценки: {self.grades}"
+
+
+class Group:
+    def __init__(self, name):
+        self.name = name
+        self.students = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def show_students(self):
+        for s in self.students:
+            print(s)
+
+    def __str__(self):
+        return f"Группа '{self.name}' ({len(self.students)} студентов)"
+
+
+s1 = Student("Олександр", 20, [90, 85, 88])
+s2 = Student("Марія", 19)
+s2.add_grade(100)
+s2.add_grade(95)
+
+
+group = Group("Python rpo17")
+group.add_student(s1)
+group.add_student(s2)
+
+
+print(group)
+group.show_students()
+print("Средняя оценка Олександра:", s1.average_grade())
